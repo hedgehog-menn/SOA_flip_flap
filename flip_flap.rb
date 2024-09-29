@@ -9,6 +9,9 @@ class FlipFlap
 
   attr_reader :data
 
+  include TsvBuddy
+  include YamlBuddy
+
   def self.input_formats
     method_names = instance_methods.map(&:to_s)
     outputs = method_names.select { |method| method.match(/^take_/) }
